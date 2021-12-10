@@ -3,11 +3,11 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Pressable } from 'react-native';
 
 export default function LoginPage(props) {
-  const { onPress, title = 'UNI Login' } = props;
+  const { navigation, onPress, title = 'UNI Login' } = props;
   return (
     <View style={styles.container}>
       <Text style={styles.title}> LionGuard</Text>
-      <Pressable style={styles.btn} onPress={onPress}>
+      <Pressable style={styles.btn} onPress={ ()=> navigation.navigate('Home')}>
         <Text style={styles.txt}>{title}</Text>
       </Pressable>
       <StatusBar style="auto" />
