@@ -19,6 +19,7 @@
     "ionicons": "^6.0.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-form-stepper": "^1.4.3",
     "react-native": "^0.66.4",
     "react-native-elements": "^3.4.2",
     "react-native-maps": "0.28.1",
