@@ -6,6 +6,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import LoginPage from './screens/Login';
 import Home from './screens/Home';
 import ReadyPage from './screens/Ready';
+import ChatPage from './screens/Chat';
 import SchduleCommute from './screens/SchduleCommute'; 
 import ProfileSetup from './screens/ProfileSetup';
 
@@ -48,6 +49,7 @@ export default function App(props) {
         <Stack.Screen name="Login" component={LoginPage} />
         <Stack.Screen name="Profile Setup" component={ProfileSetup} />
         <Stack.Screen name="Home" component={HomeStack} />
+        <Stack.Screen name="Chat" component={ChatPage} options={{ title: 'Team', headerShown: true }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

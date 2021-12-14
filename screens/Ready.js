@@ -4,7 +4,7 @@ import MapView from 'react-native-maps';
 import { StyleSheet, Text, View, Pressable, SafeAreaView, FlatList, Dimensions } from 'react-native';
 
 export default function ReadyPage(props) {
-  const { onPress, title = 'John' } = props;
+  const { navigation, onPress, title = 'John' } = props;
   return (
     <SafeAreaView style={styles.container}>
       {/* <Text style={styles.title}> Welcome, {title}</Text> */}
@@ -14,19 +14,19 @@ export default function ReadyPage(props) {
       </View>
       <Text style={styles.subtitle}>Meet your team at:</Text>
       <Pressable style={styles.btn_location}>
-          <Icon
-            name="map-marker"
-            type='font-awesome'
-            size={18}
-            color='#B9D9EB'
-            marginHorizontal={4}
-          />
-          <Text style={styles.outline_btn_txt_underline}>116 St Broadway entrance</Text>
+        <Icon
+          name="map-marker"
+          type='font-awesome'
+          size={18}
+          color='#B9D9EB'
+          marginHorizontal={4}
+        />
+        <Text style={styles.outline_btn_txt_underline}>116 St Broadway entrance</Text>
       </Pressable>
       <Pressable style={styles.outile_btn} onPress={onPress}>
         <Text style={styles.outline_btn_txt}>Review Your Preferences</Text>
       </Pressable>
-      <View style={styles.card}>
+      <Pressable style={styles.card} onPress={() => navigation.navigate('Chat')}>
         <View style={styles.card_header_container}>
           <Text style={styles.card_caption}>Your Columbia Team:</Text>
           <View style={styles.card_header_container}>
@@ -62,10 +62,10 @@ export default function ReadyPage(props) {
             }
           />
         </View>
-      </View>
+      </Pressable>
       <Text style={styles.subtitle}>Todays' commute:</Text>
       <View style={styles.map_container}>
-      <MapView style={styles.map} />
+        <MapView style={styles.map} />
       </View>
       <Pressable style={styles.btn_leave} onPress={onPress}>
         <Text style={styles.txt}>Leave group</Text>
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 8,
     padding: 8,
-    direction: 'horizontal',
+    //direction: 'horizontal',
   },
 
   card: {
