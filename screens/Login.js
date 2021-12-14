@@ -7,7 +7,7 @@ export default function LoginPage(props) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}> LionGuard</Text>
-      <Pressable style={styles.btn} onPress={ ()=> navigation.navigate('Home')}>
+      <Pressable style={styles.btn} onPress={ ()=> navigation.navigate('Profile Setup')}>
         <Text style={styles.txt}>{title}</Text>
       </Pressable>
       <StatusBar style="auto" />

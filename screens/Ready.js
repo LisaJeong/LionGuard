@@ -1,20 +1,19 @@
 import React from 'react';
 import { Icon, Button } from 'react-native-elements'
 import MapView from 'react-native-maps';
-import { StyleSheet, Text, View, Pressable, SafeAreaView, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Pressable, SafeAreaView, FlatList, Dimensions } from 'react-native';
 
 export default function ReadyPage(props) {
   const { onPress, title = 'John' } = props;
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}> Welcome, {title}</Text>
+      {/* <Text style={styles.title}> Welcome, {title}</Text> */}
       <View style={styles.card}>
         <Text style={styles.card_caption}>Group departs in:</Text>
         <Text style={styles.card_title}>10:00</Text>
       </View>
       <Text style={styles.subtitle}>Meet your team at:</Text>
-      <Button
-        icon={
+      <Pressable style={styles.btn_location}>
           <Icon
             name="map-marker"
             type='font-awesome'
@@ -22,17 +21,11 @@ export default function ReadyPage(props) {
             color='#B9D9EB'
             marginHorizontal={4}
           />
-        }
-        title='116 St Broadway entrance'
-        type='clear'
-        color='#B9D9EB'
-      />
-      <Button
-        containerStyle={styles.outile_btn}
-        title='Review your preferences'
-        type='outline'
-        color='#B9D9EB'
-      />
+          <Text style={styles.outline_btn_txt_underline}>116 St Broadway entrance</Text>
+      </Pressable>
+      <Pressable style={styles.outile_btn} onPress={onPress}>
+        <Text style={styles.outline_btn_txt}>Review Your Preferences</Text>
+      </Pressable>
       <View style={styles.card}>
         <View style={styles.card_header_container}>
           <Text style={styles.card_caption}>Your Columbia Team:</Text>
@@ -121,9 +114,16 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   outile_btn: {
-    marginVertical: 16,
+    marginHorizontal: 4,
     alignSelf: 'stretch',
-    marginHorizontal: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 24,
+    borderRadius: 4,
+    borderColor: 'grey',
+    borderWidth: 1,
+    elevation: 3,
   },
 
   txt: {
@@ -132,6 +132,28 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     letterSpacing: 0.25,
     color: 'red',
+  },
+  outline_btn_txt: {
+    fontSize: 14,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: '#000D74',
+  },
+  outline_btn_txt_underline: {
+    fontSize: 14,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: '#000D74',
+    textDecorationLine: 'underline',
+  },
+  btn_location: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginBottom: 8,
+    padding: 8,
+    direction: 'horizontal',
   },
 
   card: {
@@ -180,8 +202,9 @@ const styles = StyleSheet.create({
     margin: 4,
   },
   map: {
-    alignSelf: 'stretch',
+    borderRadius: 12,
+    alignSelf: 'center',
     flex: 1,
-    minWidth: 400,
+    width: Dimensions.get('window').width - 16,
   },
 });
