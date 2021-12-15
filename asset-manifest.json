@@ -1,0 +1,41 @@
+{
+  "files": {
+    "app.js": "/LionGuard/static/js/app.165ca7da.chunk.js",
+    "app.js.map": "/LionGuard/static/js/app.165ca7da.chunk.js.map",
+    "runtime~app.js": "/LionGuard/static/js/runtime~app.c96e27ae.js",
+    "runtime~app.js.map": "/LionGuard/static/js/runtime~app.c96e27ae.js.map",
+    "static/js/2.c88861ba.chunk.js": "/LionGuard/static/js/2.c88861ba.chunk.js",
+    "static/js/2.c88861ba.chunk.js.map": "/LionGuard/static/js/2.c88861ba.chunk.js.map",
+    "fonts/AntDesign.ttf": "/LionGuard/./fonts/AntDesign.ttf",
+    "fonts/Entypo.ttf": "/LionGuard/./fonts/Entypo.ttf",
+    "fonts/Feather.ttf": "/LionGuard/./fonts/Feather.ttf",
+    "fonts/FontAwesome.ttf": "/LionGuard/./fonts/FontAwesome.ttf",
+    "fonts/FontAwesome5_Brands.ttf": "/LionGuard/./fonts/FontAwesome5_Brands.ttf",
+    "fonts/FontAwesome5_Solid.ttf": "/LionGuard/./fonts/FontAwesome5_Solid.ttf",
+    "fonts/Fontisto.ttf": "/LionGuard/./fonts/Fontisto.ttf",
+    "fonts/Foundation.ttf": "/LionGuard/./fonts/Foundation.ttf",
+    "fonts/Ionicons.ttf": "/LionGuard/./fonts/Ionicons.ttf",
+    "fonts/MaterialCommunityIcons.ttf": "/LionGuard/./fonts/MaterialCommunityIcons.ttf",
+    "fonts/MaterialIcons.ttf": "/LionGuard/./fonts/MaterialIcons.ttf",
+    "fonts/SimpleLineIcons.ttf": "/LionGuard/./fonts/SimpleLineIcons.ttf",
+    "favicon-16.png": "/LionGuard/favicon-16.png",
+    "favicon-32.png": "/LionGuard/favicon-32.png",
+    "favicon.ico": "/LionGuard/favicon.ico",
+    "index.html": "/LionGuard/index.html",
+    "manifest.json": "/LionGuard/manifest.json",
+    "serve.json": "/LionGuard/serve.json",
+    "static/js/2.c88861ba.chunk.js.LICENSE.txt": "/LionGuard/static/js/2.c88861ba.chunk.js.LICENSE.txt",
+    "static/media/bell.png": "/LionGuard/static/media/bell.cf04af27.png",
+    "static/media/cu_map.png": "/LionGuard/static/media/cu_map.1617c0fe.png",
+    "static/media/heart.png": "/LionGuard/static/media/heart.23b5c2c0.png",
+    "static/media/picFrame.png": "/LionGuard/static/media/picFrame.0e45a7af.png",
+    "static/media/profilePic.jpeg": "/LionGuard/static/media/profilePic.dde3a2ef.jpeg",
+    "static/media/rocket.png": "/LionGuard/static/media/rocket.d2f3bf41.png",
+    "static/media/star.png": "/LionGuard/static/media/star.69c71386.png"
+  },
+  "entrypoints": [
+    "static/js/runtime~app.c96e27ae.js",
+    "static/js/2.c88861ba.chunk.js",
+    "static/js/app.165ca7da.chunk.js"
+  ]
+}
