@@ -9,6 +9,9 @@ import ReadyPage from './screens/Ready';
 import ChatPage from './screens/Chat';
 import SchduleCommute from './screens/SchduleCommute'; 
 import ProfileSetup1 from './screens/ProfileSetup/ProfileSetup1';
+import ProfileSetup2 from './screens/ProfileSetup/ProfileSetup2';
+import ProfileSetup3 from './screens/ProfileSetup/ProfileSetup3';
+import ProfileSetup4 from './screens/ProfileSetup/ProfileSetup4';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -47,7 +50,10 @@ export default function App(props) {
     <NavigationContainer>
      <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Login" component={LoginPage} />
-        <Stack.Screen name="Profile Setup" component={ProfileSetup1} />
+        <Stack.Screen name="Profile Setup 1" component={ProfileSetup1} />
+        <Stack.Screen name="Profile Setup 2" component={ProfileSetup2} />
+        <Stack.Screen name="Profile Setup 3" component={ProfileSetup3} />
+        <Stack.Screen name="Profile Setup 4" component={ProfileSetup4} />
         <Stack.Screen name="Home" component={HomeStack} />
         <Stack.Screen name="Chat" component={ChatPage} options={{ title: 'Team', headerShown: true }} />
       </Stack.Navigator>
