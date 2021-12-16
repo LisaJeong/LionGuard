@@ -1,27 +1,79 @@
-import React from 'react';
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Pressable } from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import React from 'react';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import LoginScreen from './screens/Login';
-import RegisterScreen from './screens/Registration';
+import LoginScreen from './screens/LoginScreen';
+import SetupScreen from './screens/Profile/SetupScreen';
+import HomeScreen from './screens/HomeScreen';
+import ScheduleScreen from './screens/ScheduleScreen';
+import ProfileScreen from './screens/Profile/ProfileScreen';
+import ReportScreen from './screens/Profile/ReportScreen';
+import ChatScreen from './screens/ChatScreen';
+import ReadyScreen from './screens/ReadyScreen';
+import OthersProfileScreen from './screens/Profile/OthersProfileScreen';
 
-const AppNavigator = createStackNavigator(
-  {
-    Login: LoginScreen,
-    Register: RegisterScreen
-  },
-  {
-    initialRouteName: "Login"
-  }
-);
+const  Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-const AppContainer = createAppContainer(AppNavigator);
+function HomeStack() {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        headerShown: false, 
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+          if (route.name === 'Home') {
+            iconName = focused
+              ? 'home'
+              : 'home-outline';
+          } else if (route.name === 'Ready') {
+            iconName = focused ? 'navigate' : 'navigate-outline';
+          } else if (route.name === 'Schedule') {
+            iconName = focused ? 'calendar' : 'calendar-outline';
+          } else if (route.name === 'Profile') {
+            iconName = focused ? 'person-circle' : 'person-circle-outline';
+          }
+          else if (route.name === 'Others') {
+          }
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: '#FFF',
+        tabBarInactiveTintColor: '#AAA',
+        tabBarStyle: { backgroundColor: '#000D74' },
+      })}
+    >
+      <Tab.Screen name="Home" component={HomeScreen}
+        screenOptions={{ headerShown: false }}
+      />
+      <Tab.Screen name="Ready" component={ReadyScreen}
+        screenOptions={{ headerShown: false }}
+      />
+      <Tab.Screen name="Schedule" component={ScheduleScreen}
+        screenOptions={{ headerShown: false }}
+      />
+      <Tab.Screen name="Profile" component={ProfileScreen}
+        screenOptions={{ headerShown: false }}
+      />
+    </Tab.Navigator>
+  );
+}
 
-export default class App extends React.Component {  
-    render() {  
-        return <AppContainer />;  
-    }  
-}  
-
+export default function App(props) {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Login" component={LoginScreen}/>
+        <Stack.Screen name="Setup" component={SetupScreen} />
+        <Stack.Screen name="HomeTab" component={HomeStack} />
+        <Stack.Screen name="Report" component={ReportScreen} />
+        <Stack.Screen name="Chat" component={ChatScreen} />
+        <Stack.Screen name="Others" component={OthersProfileScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
