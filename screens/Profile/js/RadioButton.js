@@ -20,10 +20,10 @@ export default function RadioButton({ isChecked, text, onRadioButtonPress }) {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    height: 50,
+    height: 30,
     marginTop: 5,
     marginBottom: 5,
-    marginLeft: 10,
+    marginLeft: 5,
     marginRight: 10,
     justifyContent: "center",
     paddingLeft: 10,
@@ -35,16 +35,16 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderWidth: 3,
     borderColor: "#000d74",
-    height: 30,
-    width: 30,
+    height: 20,
+    width: 20,
     borderRadius: 30 / 2,
     marginRight: 10,
     alignItems: "center",
     justifyContent: "center",
   },
   radioButtonIconInnerIcon: {
-    height: 25,
-    width: 25,
+    height: 15,
+    width: 15,
     backgroundColor: "#000d74",
     borderRadius: 25 / 2,
     borderWidth: 3,
@@ -52,13 +52,13 @@ const styles = StyleSheet.create({
   },
   radioButtonTextContainer: {
     flex: 5,
-    height: 50,
+    height: 40,
     justifyContent: "center",
     paddingLeft: 10,
     backgroundColor: "#ffffff"
   },
   radioButtonText: {
-    fontSize: 15,
+    fontSize: 17,
     color: "#000000"
   },
 });

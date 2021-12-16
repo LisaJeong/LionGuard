@@ -1,27 +1,23 @@
 import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Pressable, Image } from 'react-native';
-import RadioGroup from 'react-native-radio-buttons-group';
 
+import RadioButtonContainer from './js/RadioButtonContainer';
 
-const radioButtonsPrefData = [{
-  id: '1', // acts as primary key, should be unique and non-empty string
-  label: 'Same Gender',
-  value: 'Same Gender'
-},
-{
-  id: '2',
-  label: 'I’m okay with anyone!',
-  value: 'I’m okay with anyone!'
-},
+const pref = [
+  {
+    text: "Same sex",
+  },
+  {
+    text: "I'm okay with anyone!",
+  },
 ]
 
-export default function ProfileScreen(props) {
-  const [prefButtons, setPrefButtons] = useState(radioButtonsPrefData);
+const onRadioButtonPress = (itemIdx) => {
+  console.log("Clicked", itemIdx);
+};
 
-  function onPressRadioButton(radioButtonsArray) {
-    setPrefButtons(radioButtonsArray);
-  }
+export default function ProfileScreen(props) {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>John Smith</Text>
@@ -31,15 +27,13 @@ export default function ProfileScreen(props) {
         />
         <View style={styles.profile_container}>
           <Text style={styles.profile_txt}>Your Commute Preferences</Text>
-          
-          <RadioGroup
-            radioButtons={prefButtons} 
-            onPress={onPressRadioButton}
-          />
+          <RadioButtonContainer values={pref} onPress={onRadioButtonPress} />
           <Text style={styles.profile_txt}>Your Address</Text>
           <View style={styles.edit_container}>
             <Text style={styles.address}>8 W 108th St, NY</Text>
-            <Button title="Edit" />
+            <Pressable style={styles.edit_btn}>
+              <Text style={styles.edit_btn_txt}>Edit</Text>
+            </Pressable>
           </View>
           <Image 
             source={require('../../assets/cu_map.png')}
@@ -91,8 +85,21 @@ export default function ProfileScreen(props) {
     },
     edit_container: {
       flexDirection: 'row',
-      justifyContent: 'space-around',
-      marginBottom: 5
+      justifyContent: 'space-between',
+      marginLeft: 20,
+      marginBottom: 10
+    },
+    edit_btn: {
+      width: 50,
+      height: 25,
+      backgroundColor: '#000d74',
+      borderRadius: 6,
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
+    edit_btn_txt: {
+      color: '#ffffff',
+      fontWeight: 'bold',
     },
     map: {
       width: 352,

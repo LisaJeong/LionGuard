@@ -2,17 +2,53 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Pressable, TextInput } from 'react-native';
 
+import RadioButtonContainer from '../Profile/js/RadioButtonContainer';
+
+const report_case = [
+  {
+    text: "This user didn't show up",
+  },
+  {
+    text: "This user made me feel uncomfortable",
+  },
+  {
+    text: "This user provided a wrong profile photo",
+  },
+  {
+    text: "Others; please specify your case"
+  }
+]
+
+const onRadioButtonPress = (itemIdx) => {
+  console.log("Clicked", itemIdx);
+};
+
 export default function ReportScreen(props) {
     const { navigation, onPress, title = 'SUBMIT' } = props;
+    const [input, setInput] = React.useState("")
+    console.log(input)
+
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Report A User</Text>
         <Text style={styles.description}>We want you to feel safe when you use our app. As accurately as you can, please tell us what happened with this user. Choose reporting categories:</Text>
-        <TextInput style={styles.txtInput}{...props}
-          editable
-          maxLength={40}>
-        </TextInput>
-        <Pressable style={styles.btn} onPress={ ()=> navigation.navigate('Home')}>
+        <RadioButtonContainer values={report_case} onPress={onRadioButtonPress} />
+        <TextInput 
+          style={styles.txtInput}
+          onChangeText={text => setInput(text)}
+          onSubmitEditing={() => {
+            setInput("");
+          }}
+          value={input}
+          placeholder=' Type a message...'
+          keyboardType='default'
+        ></TextInput>
+        <Pressable 
+          style={styles.btn} 
+          onPress={ ()=> {
+            navigation.navigate('Home')
+            alert("Report successfully submitted.\nThank you for keeping our community safer.")
+          }}>
           <Text style={styles.txt}>{title}</Text>
         </Pressable>
         <StatusBar style="auto" />

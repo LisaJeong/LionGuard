@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Button, Pressable, Image } fr
 
 import Modal from "react-native-modal";
 import QRCode from 'react-native-qrcode-svg';
+import CountDown from 'react-native-countdown-component';
 
 export default function HomeScreen(props) {
     const { navigation, onPress, title = 'CHECK IN' } = props;
@@ -31,7 +32,7 @@ export default function HomeScreen(props) {
               onPress={ ()=> navigation.navigate('Others')}
             >
             <Image
-              source={require('../assets/profilePic.jpeg')}
+              source={require('../../assets/profilePic.jpeg')}
               style={styles.profile_btn}
             />
               <Text style={styles.buddy_name}>Vincent</Text>
@@ -41,7 +42,7 @@ export default function HomeScreen(props) {
               activeOpacity={0.5}
             >
             <Image
-              source={require('../assets/profilePic.jpeg')}
+              source={require('../../assets/profilePic.jpeg')}
               style={styles.profile_btn}
             />
               <Text style={styles.buddy_name}>Sarah</Text>
@@ -51,15 +52,25 @@ export default function HomeScreen(props) {
               activeOpacity={0.5}
             >
             <Image
-              source={require('../assets/profilePic.jpeg')}
+              source={require('../../assets/profilePic.jpeg')}
               style={styles.profile_btn}
             />
               <Text style={styles.buddy_name}>David</Text>
             </TouchableOpacity>
           </View>
-          <Text style={styles.commute_buddies}>Group departs in <Text style={styles.commute_time}>09:18</Text></Text>
+          <Text style={styles.commute_buddies}>Group departs in</Text>
+          <CountDown
+              until={60 * 9 + 18}
+              size={30}
+              digitStyle={{backgroundColor: '#FFF'}}
+              digitTxtStyle={{color: '#000d74'}}
+              separatorStyle={{color: '#000d74'}}
+              timeToShow={['M', 'S']}
+              timeLabels={{m: null, s: null}}
+              showSeparator
+            />
           <Image 
-            source={require('../assets/cu_map.png')}
+            source={require('../../assets/cu_map.png')}
             style={styles.map}
           ></Image>
           <View style={styles.btn_container}>
@@ -134,8 +145,8 @@ export default function HomeScreen(props) {
       marginBottom: 5,
     },
     map: {
-      width: 352,
-      height: 230,
+      width: 350,
+      height: 170,
       borderRadius: 16,
     },
     profile_btn: {
@@ -157,7 +168,7 @@ export default function HomeScreen(props) {
       borderRadius: 4,
       elevation: 3,
       backgroundColor: '#000d74',
-      marginTop: 20,
+      marginTop: 15,
     },
     btn_txt: {
       fontSize: 20,

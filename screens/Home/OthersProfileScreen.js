@@ -1,21 +1,6 @@
 import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Pressable, Image } from 'react-native';
-import RadioGroup from 'react-native-radio-buttons-group';
-
-
-
-const radioButtonsPrefData = [{
-  id: '1', // acts as primary key, should be unique and non-empty string
-  label: 'Same Gender',
-  value: 'Same Gender'
-},
-{
-  id: '2',
-  label: 'I’m okay with anyone!',
-  value: 'I’m okay with anyone!'
-},
-]
 
 export default function ProfileScreen(props) {
 const { navigation, onPress, title = '< Back' } = props;
@@ -52,19 +37,20 @@ const { navigation, onPress, title = '< Back' } = props;
     container: {
       flex: 1,
       backgroundColor: '#ffffff',
-      justifyContent: 'center',
       padding: 20
     },
     back_txt: {
         color: '#000d74',
         fontSize: 20,
+        marginTop: 40
     },
     title: {
       color: '#000000',
       fontSize: 50,
       letterSpacing: 0.25,
       fontWeight: 'bold',
-      marginTop: 80,
+      marginTop: 20,
+      marginBottom: 20
     },
     profile_pic: {
       width: 200,
@@ -80,7 +66,7 @@ const { navigation, onPress, title = '< Back' } = props;
       justifyContent: 'space-around',
       marginLeft: 50,
       marginRight: 50,
-      marginBottom: 8
+      marginBottom: 10
     },
     profile_container: {
       borderWidth: 2,

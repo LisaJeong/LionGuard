@@ -2,6 +2,7 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Pressable, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import CountDown from 'react-native-countdown-component';
 
 export default function ReadyScreen(props) {
     const { navigation, onPress} = props;
@@ -9,7 +10,16 @@ export default function ReadyScreen(props) {
       <View style={styles.container}>
         <View style={styles.departure}>
           <Text style={styles.txt}>Group Departs In</Text>
-          <Text style={styles.time}>09:18</Text>
+          <CountDown
+            until={60 * 9 + 18}
+            size={30}
+            digitStyle={{backgroundColor: '#FFF'}}
+            digitTxtStyle={{color: '#000d74'}}
+            separatorStyle={{color: '#000d74'}}
+            timeToShow={['M', 'S']}
+            timeLabels={{m: null, s: null}}
+            showSeparator
+          />
         </View>
         <Text style={styles.txt}>Meet Your Buddies At:</Text>
         <Text style={styles.gate}>116 St Broadway Gate</Text>
@@ -18,21 +28,21 @@ export default function ReadyScreen(props) {
           <View style={styles.profiles}>
             <View>
               <Image
-                source={require('../assets/profilePic.jpeg')}
+                source={require('../../assets/profilePic.jpeg')}
                 style={styles.profile_btn}
               />
               <Text style={styles.buddy_name}>Vincent</Text>
             </View>
             <View>
               <Image
-                source={require('../assets/profilePic.jpeg')}
+                source={require('../../assets/profilePic.jpeg')}
                 style={styles.profile_btn}
               />
               <Text style={styles.buddy_name}>Sarah</Text>
             </View>
             <View>
               <Image
-                source={require('../assets/profilePic.jpeg')}
+                source={require('../../assets/profilePic.jpeg')}
                 style={styles.profile_btn}
               />
               <Text style={styles.buddy_name}>David</Text>
@@ -40,7 +50,7 @@ export default function ReadyScreen(props) {
           </View>
         </TouchableOpacity >
         <Text style={styles.txt}>Your Commute</Text>
-        <Image source={require('../assets/cu_map.png')} style={styles.map} ></Image>
+        <Image source={require('../../assets/cu_map.png')} style={styles.map} ></Image>
         <Pressable style={styles.leave_btn} onPress={ ()=> navigation.navigate('Home')}>
           <Text style={styles.leave_txt}>Leave Group</Text>
         </Pressable>
@@ -119,7 +129,7 @@ export default function ReadyScreen(props) {
     },
     map: {
       width: 372,
-      height: 180,
+      height: 150,
       borderRadius: 16,
       marginTop: 10,
     },

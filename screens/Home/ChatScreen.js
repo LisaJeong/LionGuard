@@ -1,21 +1,12 @@
 import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Pressable, Image, TextInput } from 'react-native';
-
-const radioButtonsPrefData = [{
-  id: '1', // acts as primary key, should be unique and non-empty string
-  label: 'Same Gender',
-  value: 'Same Gender'
-},
-{
-  id: '2',
-  label: 'I’m okay with anyone!',
-  value: 'I’m okay with anyone!'
-},
-]
-
+import { StyleSheet, Text, View, Pressable, Image, TextInput } from 'react-native';
 export default function ProfileScreen(props) {
+
 const { navigation, onPress, title = '< Back' } = props;
+const [input, setInput] = React.useState("")
+
+console.log(input)
 
     return (
       <View style={styles.container}>
@@ -26,21 +17,21 @@ const { navigation, onPress, title = '< Back' } = props;
         <View style={styles.profiles}>
             <View>
               <Image
-                source={require('../assets/profilePic.jpeg')}
+                source={require('../../assets/profilePic.jpeg')}
                 style={styles.profile_pic}
               />
               <Text style={styles.buddy_name}>Vincent</Text>
             </View>
             <View>
               <Image
-                source={require('../assets/profilePic.jpeg')}
+                source={require('../../assets/profilePic.jpeg')}
                 style={styles.profile_pic}
               />
               <Text style={styles.buddy_name}>Sarah</Text>
             </View>
             <View>
               <Image
-                source={require('../assets/profilePic.jpeg')}
+                source={require('../../assets/profilePic.jpeg')}
                 style={styles.profile_pic}
               />
               <Text style={styles.buddy_name}>David</Text>
@@ -70,9 +61,17 @@ const { navigation, onPress, title = '< Back' } = props;
                 <Text>No worreis. Take your time</Text>
               </View>
             </View>
-            <TextInput style={styles.txtInput}{...props}
-              editable
-              maxLength={40}>
+            <TextInput 
+              style={styles.txtInput}
+              onChangeText={text => setInput(text)}
+              onSubmitEditing={() => {
+                console.log(input);
+                setInput("");
+              }}
+              value={input}
+              placeholder=' Type a message...'
+              keyboardType='default'
+            >
             </TextInput>
           </View>
         <StatusBar style="auto" />

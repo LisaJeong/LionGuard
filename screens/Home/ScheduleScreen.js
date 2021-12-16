@@ -1,12 +1,15 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Pressable } from 'react-native';
+// Import required components
+import { StyleSheet,View,Text } from 'react-native';
+import WeeklyList from '../Expandable';
 
 export default function ScheduleScreen(props) {
-    const { navigation, onPress, title = 'UNI Login' } = props;
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Schedule Screen</Text>
+        <Text style={styles.title}>My Schedule</Text>
+        <Text style={styles.txt}>You can adjust your schedule here.</Text>
+        <WeeklyList />
         <StatusBar style="auto" />
       </View>
     );
@@ -16,13 +19,13 @@ export default function ScheduleScreen(props) {
     container: {
       flex: 1,
       backgroundColor: '#ffffff',
-      alignItems: 'center',
-      justifyContent: 'center',
+      padding: 20
     },
     title: {
       color: '#000000',
       fontSize: 50,
       fontWeight: 'bold',
+      marginTop: 80
     },
     btn: {
       alignItems: 'center',
@@ -40,7 +43,7 @@ export default function ScheduleScreen(props) {
       lineHeight: 21,
       fontWeight: 'bold',
       letterSpacing: 0.25,
-      color: '#000d74',
+      color: '#000000',
     }
   });
   

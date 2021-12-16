@@ -8,13 +8,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import LoginScreen from './screens/LoginScreen';
 import SetupScreen from './screens/Profile/SetupScreen';
-import HomeScreen from './screens/HomeScreen';
-import ScheduleScreen from './screens/ScheduleScreen';
+import HomeScreen from './screens/Home/HomeScreen';
+import ScheduleScreen from './screens/Home/ScheduleScreen';
 import ProfileScreen from './screens/Profile/ProfileScreen';
-import ReportScreen from './screens/Profile/ReportScreen';
-import ChatScreen from './screens/ChatScreen';
-import ReadyScreen from './screens/ReadyScreen';
-import OthersProfileScreen from './screens/Profile/OthersProfileScreen';
+import ReportScreen from './screens/Home/ReportScreen';
+import ChatScreen from './screens/Home/ChatScreen';
+import ReadyScreen from './screens/Home/ReadyScreen';
+import OthersProfileScreen from './screens/Home/OthersProfileScreen';
 
 const  Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
